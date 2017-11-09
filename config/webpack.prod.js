@@ -56,7 +56,7 @@ module.exports = webpackMerge( commonConfig, {
         }),
 
         new CompressionPlugin({
-            regExp: /\.css$|\.html$|\.js$|\.map$/,
+            regExp: /\.css$|\.js$/,
             threshold: 2 * 1024
         })
     ],
