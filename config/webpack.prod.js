@@ -3,6 +3,8 @@ const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.common');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ngtools = require('@ngtools/webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeJsPlugin = require('optimize-js-plugin');
 const path = require('path');
 
 
@@ -23,23 +25,21 @@ module.exports = webpackMerge( commonConfig, {
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
 
-        new webpack.optimize.UglifyJsPlugin({
-            ie8: false,
-            sourceMap: false,
-            screw_ie8: true,
-            beautify: false,
-            comments: false,
-            mangle: {
-                screw_ie8: true
-            },
-            compress: {
-                screw_ie8: true,
+        new OptimizeJsPlugin({
+            sourceMap: false
+        }),
+
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                ie8: false,
+                ecma: 6,
                 warnings: false,
-                drop_console: false,
-                collapse_vars: true,
-                reduce_vars: true
-            },
-            warnings: false
+                mangle: true,
+                output: {
+                    comments: false,
+                    beautify: false
+                }
+            }
         }),
 
         new webpack.LoaderOptionsPlugin({

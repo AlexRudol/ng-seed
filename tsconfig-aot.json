@@ -1,23 +1,24 @@
 {
     "compilerOptions": {
-        "declaration": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
+        "target": "es5",
         "module": "commonjs",
-        "moduleResolution": "node",
         "outDir": "dist",
         "sourceMap": false,
         "sourceRoot": "src",
-        "noEmitHelpers": true,
-        "target": "es5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
         "typeRoots": [
             "node_modules/@types"
         ],
         "lib": ["es6", "dom"]
     },
     "include": [
-        "./src/**/*.module.ts",
-        "./src/*.d.ts"
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
     ],
     "angularCompilerOptions": {
         "debug": false
