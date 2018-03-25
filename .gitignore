@@ -17,67 +17,47 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test coverage
-.nyc_output
+# Tests
+/test/
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
-# Bower dependency directory (https://bower.io/)
-bower_components
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
 
-# node-waf configuration
+# Users Environment Variables
 .lock-wscript
 
-# Compiled
+# OS generated files #
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Node Files #
+/node_modules
+/bower_components
+
+# Coverage #
+/coverage/
+
+# Typing #
+/src/typings/tsd/
+/typings/
+/tsd_typings/
+
+# Dist #
 dist/
-distr/
-build/
-built/
 compiled/
 /public/__build__/
 /src/*/__build__/
 __build__/**
 .awcache/
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Typescript v1 declaration files
-typings/
-/src/typings/tsd/
-/typings/
-/tsd_typings/
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
-.env
+# Doc #
+/doc/
 
 # IDE #
 .idea/
 *.swp
-
-# OS generated files
-.DS_Store
-ehthumbs.db
-Icon?
-Thumbs.db
-

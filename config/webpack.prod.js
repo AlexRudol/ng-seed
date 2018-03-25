@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-const commonConfig = require('./webpack.common');
+const webpackConfig = require('./webpack.common');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ngtools = require('@ngtools/webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -8,7 +8,7 @@ const OptimizeJsPlugin = require('optimize-js-plugin');
 const path = require('path');
 
 
-module.exports = webpackMerge( commonConfig, {
+module.exports = webpackMerge( webpackConfig, {
 
     entry: {
         'polyfills': './src/polyfills.ts',
@@ -50,11 +50,6 @@ module.exports = webpackMerge( commonConfig, {
             }
         }),
 
-        new ngtools.AotPlugin({
-            tsConfigPath: './tsconfig-aot.json',
-            entryModule: path.resolve(__dirname, '../src','app','app.module')+'#AppModule'
-        }),
-
         new CompressionPlugin({
             regExp: /\.css$|\.js$/,
             threshold: 2 * 1024
@@ -66,7 +61,7 @@ module.exports = webpackMerge( commonConfig, {
             {
                 test: /\.ts$/,
                 exclude: [/\.(spec|e2e)\.ts$/],
-                use: ['@ngtools/webpack']
+                use: ['angular2-template-loader', 'awesome-typescript-loader', 'angular2-router-loader']
             }
         ]
     }

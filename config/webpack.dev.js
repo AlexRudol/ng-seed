@@ -1,16 +1,15 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-const commonConfig = require('./webpack.common.js');
+const webpackConfig = require('./webpack.common.js');
 const path = require('path');
 
 const protocol = process.env.npm_package_config_protocol;
 const localhost = process.env.npm_package_config_localhost;
 const localhost_port = process.env.npm_package_config_localhost_port;
 
-var https;
-https = protocol === 'https';
+const https = protocol === 'https';
 
-module.exports = webpackMerge( commonConfig, {
+module.exports = webpackMerge( webpackConfig, {
 
     entry: {
         'polyfills': './src/polyfills.ts',
@@ -43,11 +42,7 @@ module.exports = webpackMerge( commonConfig, {
     },
 
     plugins: [
-        new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)@angular/,
-            path.resolve(__dirname, 'src'),
-            {}
-        )
+        new webpack.ContextReplacementPlugin( /angular(\\|\/)core(\\|\/)/, path.resolve(__dirname, './src') )
     ],
 
     module: {

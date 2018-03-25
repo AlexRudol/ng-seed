@@ -30,6 +30,14 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                options: {
+                    configFile: './config/tslint.json'
+                }
+            },
             { test: /\.html$/, loader: 'raw-loader' }
         ]
     }

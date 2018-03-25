@@ -4,10 +4,11 @@ Angular Webpack seed project.
 
 ## Features
 
-- [Angular 4](https://angular.io/) (Typescript)
+- [Angular 5](https://angular.io/)
 - [Webpack 3](https://webpack.js.org/)
-- Ahead-of-Time, tree-shaking, compression (~80kb)
+- Ahead-of-Time, tree-shaking, compression (~85kb)
 - Easy configurable dev-server (protocol, headers etc)
+- tslint in dev and on build
 
 ## Prerequirements
 
