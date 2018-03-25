@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
     template: 'template'
 })
 export class AppComponent {
-    title = 'Template App';
+    public title = 'Template App';
 }
