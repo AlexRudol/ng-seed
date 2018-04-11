@@ -7,11 +7,9 @@ module.exports = {
         extensions: ['.ts', '.js']
     },
 
-    plugins: [
+    mode: "production",
 
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['main', 'polyfills']
-        }),
+    plugins: [
 
         new webpack.LoaderOptionsPlugin({
             options: {
@@ -27,6 +25,20 @@ module.exports = {
         })
 
     ],
+
+    optimization: {
+        runtimeChunk: "single",
+        splitChunks: {
+            chunks: "all",
+            cacheGroups: {
+                vendors: false,
+                vendor: {
+                    name: "vendor",
+                    chunks: "initial"
+                }
+            }
+        },
+    },
 
     module: {
         rules: [
